@@ -1,0 +1,126 @@
+
+/*Les polices*/
+
+@font-face {
+  font-family: 'roboto_regular' ;
+  src: url(polices/Roboto-Regular-webfont.ttf);
+  src: url(polices/Roboto-Regular-webfont.woff);
+}
+
+@font-face {
+  font-family: 'roboto_light' ;
+  src: url(polices/Roboto_condensed/RobotoCondensed-Light.ttf);
+}
+
+@font-face {
+  font-family: 'LeageGothic-regular';
+  src: url("polices/LeagueGothic-Regular.otf");
+  src: url("polices/LeagueGothic-Regular.ttf");
+  src: url("polices/LeagueGothic-Regular.woff");
+  src: url("polices/LeagueGothic-Regular.woff2");
+}
+
+@font-face {
+  font-family: 'tech logo';
+  src: url("polices/logo-font/chintzys.ttf");
+}
+
+
+
+
+
+/*************** footer - start ***************/
+
+footer{
+border-top: 2px solid rgb(151, 151, 151);
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 30vh;
+width: 100%;
+background-color: #141414;
+box-shadow:-2px 0px 30px #000000;
+position: absolute;
+bottom: 12px;
+}
+#block-black-up{
+display: flex;
+justify-content: space-around;
+}
+#block-black-down{
+display: flex;
+justify-content: space-around;
+}
+#block-black-down li{
+  cursor: pointer;
+  border-bottom: 0.125rem solid #0088ff;
+}
+
+#logo-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'tech logo';
+  font-size: 50px;
+  margin-top: 5px;
+}
+footer img{
+  height: 140px;
+  width: 140px;
+}
+
+footer ul{
+  display: flex;
+  list-style: none;
+}
+footer li{
+  margin: 7px;
+}
+
+#social-block h3{
+  font-size: 30px;
+}
+
+#social-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#social-block img{
+  width: 50px;
+  height: 50px;
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#social-block img:hover{
+background-color:#ffa702 ;
+border-radius: 12px;
+}
+
+
+#white-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  height: 30px;
+}
+
+#white-block li{
+cursor: pointer;
+}
+
+footer a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*************** footer - end ***************/
+
