@@ -1,0 +1,114 @@
+/* Fonts - START */
+
+@font-face {
+  font-family: 'roboto_regular' ;
+  src: url(polices/Roboto-Regular-webfont.ttf);
+  src: url(polices/Roboto-Regular-webfont.woff);
+}
+
+@font-face {
+  font-family: 'roboto_light' ;
+  src: url(polices/Roboto_condensed/RobotoCondensed-Light.ttf);
+}
+
+@font-face {
+  font-family: 'LeageGothic-regular';
+  src: url("polices/LeagueGothic-Regular.otf");
+  src: url("polices/LeagueGothic-Regular.ttf");
+  src: url("polices/LeagueGothic-Regular.woff");
+  src: url("polices/LeagueGothic-Regular.woff2");
+}
+
+/* Fonts - END */
+
+
+/**************** main - start ****************/
+body{
+  background-color: rgb(235, 235, 235);
+}
+
+main{
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 70vh;
+}
+
+section{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+}
+
+section div{
+  font-size: 60px;
+}
+section p{
+  margin: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+
+  /* Button - start */
+
+  .orange{
+    background-color: #F87000;
+    color: #FFFFFF;
+  }
+
+  .green{
+    background-color: white;
+    color: black;
+  }
+
+  .button {
+    position: relative;
+    border: none;
+    font-size: 20px;
+    padding: 15px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 20px;
+  }
+
+
+  .button:after {
+    content: "";
+    background: #ffab67;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+  /* Button - end */
+
+
+/**************** main - end ****************/    
+
+

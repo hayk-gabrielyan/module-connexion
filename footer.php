@@ -21,7 +21,6 @@
         <li>Contact</li>
         <li>FAQ</li>
         <li>La rédaction</li>
-        <li>Comparaison des prix</li>
         <li>Partenaires techniques</li>
         <li>Paramétrer les cookies</li>
     </ul>

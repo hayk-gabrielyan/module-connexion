@@ -1,0 +1,137 @@
+/* Fonts - START */
+
+@font-face {
+  font-family: 'roboto_regular' ;
+  src: url(polices/Roboto-Regular-webfont.ttf);
+  src: url(polices/Roboto-Regular-webfont.woff);
+}
+
+@font-face {
+  font-family: 'roboto_light' ;
+  src: url(polices/Roboto_condensed/RobotoCondensed-Light.ttf);
+}
+
+@font-face {
+  font-family: 'LeageGothic-regular';
+  src: url("polices/LeagueGothic-Regular.otf");
+  src: url("polices/LeagueGothic-Regular.ttf");
+  src: url("polices/LeagueGothic-Regular.woff");
+  src: url("polices/LeagueGothic-Regular.woff2");
+}
+
+/* Fonts - END */
+
+
+/**************** main - start ****************/
+body{
+  background-color: rgb(235, 235, 235);
+}
+
+main{
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 70vh;
+}
+
+section{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 60vh;
+}
+
+.left_block{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right_block{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 150px;
+}
+
+.right_block form{
+  text-align: center;
+}
+
+.Bienvenue{
+  margin-top: 15%;
+  font-size: 60px;
+}
+
+.accueil-logo{
+  width: 200px;
+  margin: 12px;
+}
+
+.chez{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+p{
+  font-size: 15px;
+}
+
+
+/*formulaire de registration*/
+.right_block h2{
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: #F87000;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid #F87000;
+}
+
+/* button */
+.button {
+  background-color: #F87000;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.button:hover {
+  opacity: 1;
+}
+/**************** main - end ****************/    
+
+

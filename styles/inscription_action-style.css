@@ -1,0 +1,35 @@
+/* Fonts - START */
+
+@font-face {
+  font-family: 'roboto_regular' ;
+  src: url(polices/Roboto-Regular-webfont.ttf);
+  src: url(polices/Roboto-Regular-webfont.woff);
+}
+
+@font-face {
+  font-family: 'roboto_light' ;
+  src: url(polices/Roboto_condensed/RobotoCondensed-Light.ttf);
+}
+
+@font-face {
+  font-family: 'LeageGothic-regular';
+  src: url("polices/LeagueGothic-Regular.otf");
+  src: url("polices/LeagueGothic-Regular.ttf");
+  src: url("polices/LeagueGothic-Regular.woff");
+  src: url("polices/LeagueGothic-Regular.woff2");
+}
+
+/* Fonts - END */
+
+
+/**************** main - start ****************/
+body{
+  background-color: rgb(235, 235, 235);
+}
+
+section{
+  height: 70vh;
+  border: solid 2px red;
+}
+
+

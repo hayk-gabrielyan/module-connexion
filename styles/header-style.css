@@ -54,6 +54,7 @@ header{
   height: 70px;
   display: flex;
   justify-content: space-between;
+  background-color: white ;
   box-shadow:2px 2px 30px #9d9d9d;
 }
 
@@ -64,14 +65,12 @@ font-family: 'tech logo';
 color: rgb(0, 0, 0);
 }
 
-#logotext:hover{
-color: #0088ff;
-}
 
 #box1{
   display: flex;
   flex-direction: row;
 }
+
 #box1 a{
 padding-top: 3px;
 }
@@ -84,17 +83,6 @@ padding-right: 50px;
 }
 
 
-
-header p{
-color: black;
-font-size: 40px;
-margin-top: 3px;
-}
-
-header a{
-  text-decoration: none;
-
-}
 
 #logo-box{
   padding-left: 40px;
@@ -120,14 +108,14 @@ margin-right: 3px;
 }
 
 #box2 a:hover {
-background-color: #ffa702;
+background-color: #F87000;
 color: white;
 }
 
 #box2 a.active {
-background-color: #0088ff;
+background-color: #F87000;
 color: white;
-
+padding: 14px;
 }
 
 .no_active{
