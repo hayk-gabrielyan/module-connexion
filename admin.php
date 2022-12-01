@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<?php include('header.php'); ?>
+<?php include('include/header.php'); ?>
 
 <main>
     <section>
@@ -16,7 +16,7 @@
     </section>
 </main>
 
-<?php include('footer.php'); ?>
+<?php include('include/footer.php'); ?>
 
 </body>
 </html>

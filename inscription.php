@@ -1,3 +1,46 @@
+
+<?php
+$connect = @mysqli_connect('localhost', 'root', '', 'moduleconnexion') or die("Erreur de connexion");
+?>
+
+
+
+<?php
+    if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['prenom'])){
+    $login = mysqli_real_escape_string($connect,htmlspecialchars($_POST['login']));
+    $password = mysqli_real_escape_string($connect,htmlspecialchars($_POST['password']));
+    $password2 = mysqli_real_escape_string($connect,htmlspecialchars($_POST['password2']));
+    $prenom = mysqli_real_escape_string($connect,htmlspecialchars($_POST['prenom']));
+    $nom = mysqli_real_escape_string($connect,htmlspecialchars($_POST['nom']));
+
+    if($login !== "" && $password !== "" && $password2 !== "" && $prenom !== "" && $nom !== ""){
+        if($password == $password2){
+            $requete = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
+            $exec_requete = $connect -> query($requete);
+            $reponse      = mysqli_fetch_array($exec_requete);
+            $count = $reponse['count(*)'];
+
+            if($count==0){
+                $password = password_hash($password, PASSWORD_BCRYPT);
+                $requete = "INSERT INTO utilisateurs (login, prenom, nom, password) VALUES ('".$login."', '".$prenom."', '".$nom."', '".($password)."')";
+                $exec_requete = $connect -> query($requete);
+                header('Location: connexion.php');
+            }
+            else{// utilisateur déjà existant
+                header('Location: inscription.php?erreur=1');
+            }
+        }
+        else{// mot de passe différent
+            header('Location: inscription.php?erreur=2'); 
+        }
+    }
+
+}
+
+mysqli_close($connect); // fermer la connexion
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +51,23 @@
 </head>
 <body>
 
-<?php include('header.php'); ?>
+<?php include('include/header.php'); ?>
 <main>
 <section>
-    <form action="inscription_action.php" method="GET">
+
+<?php
+    if(isset($_GET['erreur'])){
+        $err = $_GET['erreur'];
+        if($err==1){
+            echo "<p style='color:red'>Ce nom d'utilisateur a déjà été utilisé</p>";
+        }
+        if($err==2){
+            echo "<p style='color:red'>Les mot de passes ne correspondent pas</p>";
+        }
+    }
+?>
+
+    <form action="inscription.php" method="POST">
 
         <div class="container">
             <div class="bold register">Inscrivez-vous</div>
@@ -19,19 +75,19 @@
             <hr>
             <div class="name">
                 <label for="name" class="bold">Nom</label>
-                <input type="text" placeholder="Saissisez votre nom" name="surname" id="surname" required>
+                <input type="text" placeholder="Saissisez votre nom" name="nom" id="nom" required>
                 
                 <label for="name" class="bold" id="name">Prénom</label>
-                <input type="text" placeholder="Saissisez votre prénom" name="name" id="name" required>
+                <input type="text" placeholder="Saissisez votre prénom" name="prenom" id="prenom" required>
             </div>
-            <label for="username" class="bold">Nom d'utilisateur</label>
-            <input type="text" placeholder="Saissisez un nom d'utilisateur" name="username" id="username" required>
+            <label for="login" class="bold">Nom d'utilisateur</label>
+            <input type="text" placeholder="Saissisez un nom d'utilisateur" name="login" id="login" required>
 
             <label for="password" class="bold">Mot de passe</label>
             <input type="password" placeholder="Mot de passe" name="password" id="password" required>
 
-            <label for="password-repeat" class="bold">Répétez le mot de passe</label>
-            <input type="password" placeholder="Confirmez le mot de passe" name="password-repeat" id="password-repeat" required>
+            <label for="password2" class="bold">Répétez le mot de passe</label>
+            <input type="password" placeholder="Confirmez le mot de passe" name="password2" id="password2" required>
             <hr>
             <p id="policy">En vous inscrivant, vous acceptez nos <a href="#">Conditions Générales d’Utilisation</a>.</p>
 
@@ -48,7 +104,11 @@
 
 </main>
 
-<?php include('footer.php'); ?>
+<?php include('include/footer.php'); ?>
+
+
 
 </body>
 </html>
+
+
