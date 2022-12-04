@@ -1,3 +1,3 @@
 <?php 
-$connect = @mysqli_connect('localhost', 'root', '', 'moduleconnexion') or die("Erreur de connexion"); 
+    $connect = new mysqli('localhost', 'root', '', 'moduleconnexion');
 ?>

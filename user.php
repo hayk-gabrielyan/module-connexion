@@ -1,4 +1,9 @@
-<?php session_start()?>
+<?php session_start();
+//protection à l'acces direct par url
+if (!$_SESSION['loginOK']) {
+    header('Location: connexion.php');
+}
+?>
 
 <?php
     // rappel des variable contenant les informations de l'utilisateur

@@ -40,9 +40,7 @@ include 'include/connect_db.php';
                 }
             }
 
-        ?>
-
-        <?php
+        
             //affichage en cas d'erreur
             if(isset($_GET['erreur'])){
                 if ($_GET['erreur'] == 3){
@@ -164,7 +162,7 @@ include 'include/connect_db.php';
 
 ?>
 
-
+<!--footer des pages-->
 <?php include('include/footer.php'); ?>
 
 </body>

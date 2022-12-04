@@ -11,7 +11,7 @@
 
     if($login !== "" && $password !== "" && $password2 !== "" && $prenom !== "" && $nom !== ""){
         if($password == $password2){
-            $requete = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
+            $requete = "SELECT count(*) FROM utilisateurs where login = '" . $login . "'";
             $exec_requete = $connect -> query($requete);
             $reponse      = mysqli_fetch_array($exec_requete);
             $count = $reponse['count(*)'];

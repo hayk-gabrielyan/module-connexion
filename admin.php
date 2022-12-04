@@ -1,4 +1,9 @@
-<?php session_start()?>
+<?php session_start();
+//protection à l'acces direct par url
+if (!$_SESSION['loginOK']) {
+    header('Location: connexion.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +12,7 @@
 <link rel="icon" type="image/x-icon" href="img/logo-onglet.svg">
 </head>
 <body>
-
+<!--header des pages-->
 <?php include('include/header.php'); 
         include 'include/connect_db.php';
 ?>
@@ -23,7 +28,6 @@
                             <th>Nom d'utilisateur</th>
                             <th>Prénom</th>
                             <th>Nom</th>
-                            <th>Password</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +41,6 @@
                                 echo "<td>".$result['login']."</td>";
                                 echo "<td>".$result['prenom']."</td>";
                                 echo "<td>".$result['nom']."</td>";
-                                echo "<td>".$result['password']."</td>";
                                 echo "</tr>";
                             }
                         ?>
@@ -45,7 +48,7 @@
                 </table>
     </section>
 </main>
-
+<!--footer des pages-->
 <?php include('include/footer.php'); ?>
 
 </body>

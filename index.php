@@ -6,7 +6,7 @@
 <link rel="icon" type="image/x-icon" href="img/logo-onglet.svg">
 </head>
 <body>
-
+<!--header des pages-->
 <?php include('include/header.php'); ?>
 <main>
 <section>
@@ -27,7 +27,7 @@
 </section>
 
 </main>
-
+<!--footer des pages-->
 <?php include('include/footer.php'); ?>
 </body>
 </html>
