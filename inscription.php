@@ -1,11 +1,7 @@
-
 <?php
-$connect = @mysqli_connect('localhost', 'root', '', 'moduleconnexion') or die("Erreur de connexion");
-?>
 
-
-
-<?php
+    include('include/connect_db.php'); // connexion à la base de donnée
+    
     if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['prenom'])){
     $login = mysqli_real_escape_string($connect,htmlspecialchars($_POST['login']));
     $password = mysqli_real_escape_string($connect,htmlspecialchars($_POST['password']));
@@ -40,7 +36,7 @@ $connect = @mysqli_connect('localhost', 'root', '', 'moduleconnexion') or die("E
 mysqli_close($connect); // fermer la connexion
 ?>
 
-
+<!-- partie HTML -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,18 +47,20 @@ mysqli_close($connect); // fermer la connexion
 </head>
 <body>
 
+<!-- header des pages -->
 <?php include('include/header.php'); ?>
 <main>
 <section>
 
+<!-- partie PHP qui affiche l'erreur de utilisateur existant ou mot de passes qui correspondent pas -->
 <?php
     if(isset($_GET['erreur'])){
         $err = $_GET['erreur'];
         if($err==1){
-            echo "<p style='color:red'>Ce nom d'utilisateur a déjà été utilisé</p>";
+            echo "<center><p style='color:red'>Ce nom d'utilisateur a déjà été utilisé</p></center>";
         }
         if($err==2){
-            echo "<p style='color:red'>Les mot de passes ne correspondent pas</p>";
+            echo "<center><p style='color:red'>Les mot de passes ne correspondent pas</p></center>";
         }
     }
 ?>
@@ -104,6 +102,7 @@ mysqli_close($connect); // fermer la connexion
 
 </main>
 
+<!-- footer des pages -->
 <?php include('include/footer.php'); ?>
 
 

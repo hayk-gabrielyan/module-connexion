@@ -11,7 +11,7 @@
 <main>
 <section>
     <div class="left_block">
-        <div class="Bienvenue">Binevenue</div>
+        <div class="Bienvenue">Bienvenue</div>
             <div class="chez">
                 <div >chez</div>
                 <img src="img/logo_black_letters.svg" class="accueil-logo">

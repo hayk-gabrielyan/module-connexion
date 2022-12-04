@@ -1,18 +1,48 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>admin_connected</title>
-<link rel="stylesheet" href="styles/admin_connected.css" />
+<title>admin</title>
+<link rel="stylesheet" href="styles/admin.css" />
 <link rel="icon" type="image/x-icon" href="img/logo-onglet.svg">
 </head>
 <body>
 
-<?php include('include/header.php'); ?>
+<?php include('include/header.php'); 
+        include 'include/connect_db.php';
+?>
 
 <main>
     <section>
-            <div class="Bienvenue">Binevenue admin</div>
+            <div class="Bienvenue">Bienvenue <?php echo $_SESSION['login'];?></div>
             <p>Voici la liste de tous les utilisateurs.</p>
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom d'utilisateur</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $request = "SELECT * FROM utilisateurs";
+                            $exec_request = $connect -> query($request);
+                            while(($result = $exec_request -> fetch_assoc()) != null)
+                            {
+                                echo "<tr>";
+                                echo "<td>".$result['id']."</td>";
+                                echo "<td>".$result['login']."</td>";
+                                echo "<td>".$result['prenom']."</td>";
+                                echo "<td>".$result['nom']."</td>";
+                                echo "<td>".$result['password']."</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
     </section>
 </main>
 

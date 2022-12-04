@@ -1,47 +1,8 @@
 <?php
-session_start();
-
-if(isset($_POST['submit']))
-{
-    if(!empty($_POST))
-    {
-        $login = $_POST['login'];
-        $password= $_POST['password'];
-        $bd = mysqli_connect("localhost","root","","moduleconnexion");
-        $requete = mysqli_query($bd, "SELECT login, password FROM `utilisateurs` WHERE login='$login' ");
-
-        //on va utiliser num_rows pour verifier que l'utilisateur existe
-        $resultat = mysqli_num_rows($requete);
-
-        //on fait un fetch row pour recup la ligne
-        $resultat2 = mysqli_fetch_row($requete);
-
-        //Decryptage du password
-        $verify = password_verify($password, $resultat2[1]);
-    }
-
-    //si verify existe
-    if($verify==true)
-    {
-        if($resultat2[0]=='admin') //on verifie seulement le login puisque le password à deja été verifié
-        {
-            // session_start();
-            $_SESSION['admin'] = 'admin';
-            header('location: admin.php');
-            exit();
-        }
-
-        if($resultat==1);
-        {
-            // session_start();
-            $_SESSION['connexion'] =  $login ;
-            header('location: profil.php');
-            exit();
-        }
-    }
-}
-
+include('include/connect_db.php'); // connexion à la base de donnée
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -52,13 +13,14 @@ if(isset($_POST['submit']))
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
+<!-- header des pages -->
 <?php include('include/header.php'); ?>
+
 
 <main>
 <section>
     <div class="left_block">
-        <div class="Bienvenue">Binevenue</div>
+        <div class="Bienvenue">Bienvenue</div>
             <div class="chez">
                 <div >chez</div>
                 <img src="img/logo_black_letters.svg" class="accueil-logo">
@@ -66,7 +28,7 @@ if(isset($_POST['submit']))
             <p>Conseil et expertise en Système d'information</p>
 </div>
     <div class="right_block">
-        <form action="" method="POST">  
+        <form action="verif.php" method="POST">  
             <h2>Connexion</h2>
             <div class="input-container">
             <i class="fa fa-user icon"></i>
@@ -78,11 +40,20 @@ if(isset($_POST['submit']))
     </div>
             <button type="submit" name="submit" class="button">Se connecter</button>
         </form>
+
+<?php
+    if(isset($_GET['erreur'])){
+        $err = $_GET['erreur'];
+        if($err==1 || $err==2)
+            echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+    }
+?>
+
 </div>
 </section>
-
 </main>
 
+<!-- footer des pages -->
 <?php include('include/footer.php'); ?>
 
 </body>
