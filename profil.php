@@ -7,7 +7,7 @@ include 'include/connect_db.php';
 <!DOCTYPE html>
 <html>
 <head>
-<title>Inscription</title>
+<title>Profil</title>
 <link rel="stylesheet" href="styles/profile.css" />
 <link rel="icon" type="image/x-icon" href="img/logo-onglet.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

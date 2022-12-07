@@ -1,9 +1,4 @@
-<?php session_start();
-//protection à l'acces direct par url
-if (!$_SESSION['loginOK']) {
-    header('Location: connexion.php');
-}
-?>
+<?php session_start();?>
 
 <?php
     // rappel des variable contenant les informations de l'utilisateur
@@ -16,7 +11,7 @@ if (!$_SESSION['loginOK']) {
 <!DOCTYPE html>
 <html>
 <head>
-<title>user</title>
+<title>Page d'Utilisateur</title>
 <link rel="stylesheet" href="styles/user.css" />
 <link rel="icon" type="image/x-icon" href="img/logo-onglet.svg">
 </head>

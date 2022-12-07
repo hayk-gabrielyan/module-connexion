@@ -1,13 +1,8 @@
-<?php session_start();
-//protection à l'acces direct par url
-if (!$_SESSION['loginOK']) {
-    header('Location: connexion.php');
-}
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>admin</title>
+<title>Page d'administrateur</title>
 <link rel="stylesheet" href="styles/admin.css" />
 <link rel="icon" type="image/x-icon" href="img/logo-onglet.svg">
 </head>
